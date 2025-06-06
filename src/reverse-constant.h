@@ -9,7 +9,7 @@
 #ifndef VA_GL_SRC_REVERSE_CONSTANT_H
 #define VA_GL_SRC_REVERSE_CONSTANT_H
 
-#include "3rdparty/vdpau/vdpau.h"
+#include "vdpau.h"
 
 const char * reverse_status(VdpStatus status);
 const char * reverse_func_id(VdpFuncId func_id);

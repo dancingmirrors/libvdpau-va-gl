@@ -10,8 +10,8 @@
 #define VA_GL_SRC_TRACE_H
 
 #include <stdio.h>
-#include "3rdparty/vdpau/vdpau.h"
-#include "3rdparty/vdpau/vdpau_x11.h"
+#include "vdpau.h"
+#include "vdpau_x11.h"
 #include "reverse-constant.h"
 
 void

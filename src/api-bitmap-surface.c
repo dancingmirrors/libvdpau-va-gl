@@ -11,7 +11,7 @@
 #include <GL/glu.h>
 #include <stdlib.h>
 #include <string.h>
-#include "3rdparty/vdpau/vdpau.h"
+#include "vdpau.h"
 #include "api.h"
 #include "trace.h"
 

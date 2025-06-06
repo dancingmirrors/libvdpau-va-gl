@@ -12,7 +12,7 @@
 #include <GL/glu.h>
 #include <stdlib.h>
 #include <va/va_x11.h>
-#include "3rdparty/vdpau/vdpau.h"
+#include "vdpau.h"
 #include <string.h>
 #include "api.h"
 #include "trace.h"
