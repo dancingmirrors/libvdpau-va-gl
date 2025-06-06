@@ -12,7 +12,7 @@
 #include <GL/glu.h>
 #include <stdlib.h>
 #include "trace.h"
-#include <vdpau/vdpau.h>
+#include "3rdparty/vdpau/vdpau.h"
 
 struct blend_state_struct {
     GLuint srcFuncRGB;

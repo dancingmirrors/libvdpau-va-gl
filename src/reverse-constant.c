@@ -7,8 +7,8 @@
  */
 
 #include "reverse-constant.h"
-#include <vdpau/vdpau.h>
-#include <vdpau/vdpau_x11.h>
+#include "3rdparty/vdpau/vdpau.h"
+#include "3rdparty/vdpau/vdpau_x11.h"
 
 #define CASE(q) case q: return #q
 

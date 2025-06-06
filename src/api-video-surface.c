@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <va/va.h>
-#include <vdpau/vdpau.h>
+#include "3rdparty/vdpau/vdpau.h"
 #include "api.h"
 #include "trace.h"
 
@@ -585,8 +585,8 @@ vdpVideoSurfaceQueryCapabilities(VdpDevice device, VdpChromaType surface_chroma_
     (void)device; (void)surface_chroma_type;
     // TODO: implement
     *is_supported = 1;
-    *max_width = 1920;
-    *max_height = 1080;
+    *max_width = 4096;
+    *max_height = 4096;
 
     return VDP_STATUS_OK;
 }

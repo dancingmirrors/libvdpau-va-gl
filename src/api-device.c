@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include "trace.h"
 #include <va/va_x11.h>
-#include <vdpau/vdpau.h>
+#include "3rdparty/vdpau/vdpau.h"
 #include "watermark.h"
 
 
@@ -302,8 +302,7 @@ vdpDeviceDestroy(VdpDevice device)
     }
 
     // cleaup libva
-    if (data->va_available)
-        vaTerminate(data->va_dpy);
+    vaTerminate(data->va_dpy);
 
     glx_ctx_push_thread_local(data);
     glDeleteTextures(1, &data->watermark_tex_id);

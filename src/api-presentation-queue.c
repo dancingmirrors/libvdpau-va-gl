@@ -8,13 +8,12 @@
 
 #define GL_GLEXT_PROTOTYPES
 #define _GNU_SOURCE
-#define _XOPEN_SOURCE 500
 #include <assert.h>
 #include <errno.h>
 #include <stdlib.h>
 #include <sys/time.h>
 #include <unistd.h>
-#include <vdpau/vdpau.h>
+#include "3rdparty/vdpau/vdpau.h"
 #include <GL/gl.h>
 #include "ctx-stack.h"
 #include "globals.h"
