@@ -14,7 +14,6 @@ set(LIB_SUFFIX "" CACHE STRING "library path suffix (if needed)")
 set(LIB_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/vdpau" CACHE PATH "library installation path")
 
 include_directories (
-        3rdparty
 	${X11_INCLUDE_DIRS}
 	${VDPAU_INCLUDE_DIRS}
 	${GLIB20_INCLUDE_DIRS}
