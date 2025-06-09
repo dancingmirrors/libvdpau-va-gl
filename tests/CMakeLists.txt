@@ -32,3 +32,5 @@ endforeach(_test)
 include_directories(${GLIB20_INCLUDE_DIRS})
 add_executable(conv-speed conv-speed.c)
 target_link_libraries(conv-speed ${DRIVER_NAME}_static)
+
+set(CMAKE_BUILD_TYPE Release)
