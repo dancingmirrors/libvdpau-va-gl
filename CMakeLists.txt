@@ -1,5 +1,5 @@
+cmake_minimum_required (VERSION 3.10)
 project (libvdpau-va-gl)
-cmake_minimum_required (VERSION 2.8.8)
 add_definitions(-std=gnu99 -Wall -fvisibility=hidden -fPIC)
 
 find_package(PkgConfig REQUIRED)
