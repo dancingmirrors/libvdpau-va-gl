@@ -6,7 +6,7 @@
  * libvdpau-va-gl is distributed under the terms of the LGPLv3. See COPYING for details.
  */
 
-#include "vdpau.h"
+#include <vdpau/vdpau.h>
 
 VdpStatus
 vdpGenerateCSCMatrix(VdpProcamp *procamp, VdpColorStandard standard, VdpCSCMatrix *csc_matrix)

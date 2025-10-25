@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <sys/time.h>
 #include <unistd.h>
-#include "vdpau.h"
+#include <vdpau/vdpau.h>
 #include <GL/gl.h>
 #include "ctx-stack.h"
 #include "globals.h"

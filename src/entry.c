@@ -8,7 +8,7 @@
 
 #define _GNU_SOURCE
 #include <ctype.h>
-#include "vdpau.h"
+#include <vdpau/vdpau.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

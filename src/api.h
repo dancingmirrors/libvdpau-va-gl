@@ -11,7 +11,7 @@
 
 #include <GL/glx.h>
 #include <pthread.h>
-#include "vdpau.h"
+#include <vdpau/vdpau.h>
 #include <va/va.h>
 #include "handle-storage.h"
 #include "shaders.h"

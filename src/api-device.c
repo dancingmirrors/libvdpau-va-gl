@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include "trace.h"
 #include <va/va_x11.h>
-#include "vdpau.h"
+#include <vdpau/vdpau.h>
 #include "watermark.h"
 
 

@@ -9,7 +9,7 @@
 #ifndef VA_GL_SRC_HANDLE_STORAGE_H
 #define VA_GL_SRC_HANDLE_STORAGE_H
 
-#include "vdpau_x11.h"
+#include <vdpau/vdpau_x11.h>
 #include <glib.h>
 
 typedef uint32_t    HandleType;
