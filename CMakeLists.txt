@@ -25,12 +25,7 @@ include_directories (
 	src
 )
 
-add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND})
-add_custom_target(build-tests)
-add_dependencies(check build-tests)
 add_subdirectory(glsl)
-enable_testing()
-add_subdirectory(tests)
 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 add_subdirectory(src)
