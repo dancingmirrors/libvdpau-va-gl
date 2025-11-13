@@ -1,2 +1,0 @@
-/usr/bin/ar qc libshader-bundle.a "CMakeFiles/shader-bundle.dir/shaders.c.o"
-/usr/bin/ranlib libshader-bundle.a

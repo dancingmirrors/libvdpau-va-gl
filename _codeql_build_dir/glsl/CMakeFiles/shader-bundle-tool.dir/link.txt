@@ -1,1 +1,0 @@
-/home/runner/work/libvdpau-va-gl/.codeql-scratch/dbs/cpp/working/autobuild/bin/cc -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/shader-bundle-tool.dir/link.d "CMakeFiles/shader-bundle-tool.dir/shader-bundle-tool.c.o" -o shader-bundle-tool
