@@ -55,3 +55,5 @@ set_target_properties(${DRIVER_NAME}
 )
 
 install(TARGETS ${DRIVER_NAME} DESTINATION ${LIB_INSTALL_DIR})
+
+set(CMAKE_BUILD_TYPE Release)

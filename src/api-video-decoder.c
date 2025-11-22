@@ -66,7 +66,7 @@ vdpDecoderCreate(VdpDevice device, VdpDecoderProfile profile, uint32_t width, ui
             break;
 
         case VDP_DECODER_PROFILE_H264_BASELINE:
-            va_profile = VAProfileH264Baseline;
+            va_profile = VAProfileH264ConstrainedBaseline;
             data->num_render_targets = NUM_RENDER_TARGETS_H264;
             next_profile = VDP_DECODER_PROFILE_H264_MAIN;
             break;
@@ -321,10 +321,8 @@ vdpDecoderQueryCapabilities(VdpDevice device, VdpDecoderProfile profile, VdpBool
             /* fall through */
         case VAProfileH264Main:
             available_profiles.h264_main = 1;
-            /* fall through */
-        case VAProfileH264Baseline:
             available_profiles.h264_baseline = 1;
-            /* fall though */
+            /* fall through */
         case VAProfileH264ConstrainedBaseline:
             break;
 
@@ -447,10 +445,13 @@ h264_translate_pic_param(VAPictureParameterBufferH264 *pic_param, uint32_t width
         SEQ_FIELDS(pic_order_cnt_type)                  = vdppi->pic_order_cnt_type;
         SEQ_FIELDS(log2_max_pic_order_cnt_lsb_minus4)   = vdppi->log2_max_pic_order_cnt_lsb_minus4;
         SEQ_FIELDS(delta_pic_order_always_zero_flag)    = vdppi->delta_pic_order_always_zero_flag;
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
         pic_param->num_slice_groups_minus1              = 0; // TODO: vdppi->slice_count - 1; ???
 
         pic_param->slice_group_map_type                 = 0; // ???
         pic_param->slice_group_change_rate_minus1       = 0; // ???
+#pragma GCC diagnostic pop
         pic_param->pic_init_qp_minus26                  = vdppi->pic_init_qp_minus26;
         pic_param->pic_init_qs_minus26                  = 0; // ???
         pic_param->chroma_qp_index_offset               = vdppi->chroma_qp_index_offset;

@@ -1,10 +1,9 @@
+cmake_minimum_required (VERSION 3.10)
 project (libvdpau-va-gl)
-cmake_minimum_required (VERSION 2.8.8)
 add_definitions(-std=gnu99 -Wall -fvisibility=hidden -fPIC)
 
 find_package(PkgConfig REQUIRED)
 find_package(X11 REQUIRED)
-pkg_check_modules(VDPAU      vdpau      REQUIRED)
 pkg_check_modules(GLIB20     glib-2.0   REQUIRED)
 pkg_check_modules(LIBVA      libva-x11  REQUIRED)
 pkg_check_modules(LIBSWSCALE libswscale REQUIRED)
@@ -26,13 +25,10 @@ include_directories (
 	src
 )
 
-add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND})
-add_custom_target(build-tests)
-add_dependencies(check build-tests)
 add_subdirectory(glsl)
-enable_testing()
-add_subdirectory(tests)
 
-# put compiled library to the build directory root
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 add_subdirectory(src)
+
+set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_INSTALL_PREFIX /usr/local)

@@ -6,7 +6,6 @@
  * libvdpau-va-gl is distributed under the terms of the LGPLv3. See COPYING for details.
  */
 
-#define _XOPEN_SOURCE   500
 #define _GNU_SOURCE
 #include <ctype.h>
 #include <vdpau/vdpau.h>

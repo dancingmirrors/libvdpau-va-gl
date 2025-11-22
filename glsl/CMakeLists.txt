@@ -20,3 +20,5 @@ add_custom_target(shader-bundle-src DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/shaders.
 add_executable(shader-bundle-tool shader-bundle-tool.c)
 add_library(shader-bundle STATIC ${CMAKE_CURRENT_BINARY_DIR}/shaders.c)
 add_dependencies(shader-bundle shader-bundle-src)
+
+set(CMAKE_BUILD_TYPE Release)
