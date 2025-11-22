@@ -239,9 +239,12 @@ fill_ref_pic_list(struct slice_parameters *sp, const VAPictureParameterBufferH26
         // TODO: implement interlaced P slices
         ctx.what = 1;
         ctx.descending = 0;
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
         g_qsort_with_data(idcs_asc, frame_count, sizeof(idcs_asc[0]), &comparison_fcn_1, &ctx);
         ctx.descending = 1;
         g_qsort_with_data(idcs_desc, frame_count, sizeof(idcs_desc[0]), &comparison_fcn_1, &ctx);
+#pragma GCC diagnostic pop
 
         int ptr = 0;
         for (int k = 0; k < frame_count; k ++)
@@ -255,9 +258,12 @@ fill_ref_pic_list(struct slice_parameters *sp, const VAPictureParameterBufferH26
     } else if (sp->slice_type == SLICE_TYPE_B && !vapp->pic_fields.bits.field_pic_flag) {
         ctx.what = 1;
         ctx.descending = 0;
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
         g_qsort_with_data(idcs_asc, frame_count, sizeof(idcs_asc[0]), &comparison_fcn_1, &ctx);
         ctx.descending = 1;
         g_qsort_with_data(idcs_desc, frame_count, sizeof(idcs_desc[0]), &comparison_fcn_1, &ctx);
+#pragma GCC diagnostic pop
 
         int ptr0 = 0;
         int ptr1 = 0;
@@ -443,11 +449,14 @@ parse_slice_header(rbsp_state_t *st, const VAPictureParameterBufferH264 *vapp,
         }
     }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
     if (vapp->num_slice_groups_minus1 > 0 && vapp->slice_group_map_type >= 3 &&
         vapp->slice_group_map_type <= 5)
     {
         NOT_IMPLEMENTED("don't know what length to consume\n");
     }
+#pragma GCC diagnostic pop
 
     do_fill_va_slice_parameter_buffer(&sp, vasp, st->bits_eaten);
 }

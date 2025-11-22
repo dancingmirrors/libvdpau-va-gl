@@ -302,8 +302,7 @@ vdpDeviceDestroy(VdpDevice device)
     }
 
     // cleaup libva
-    if (data->va_available)
-        vaTerminate(data->va_dpy);
+    vaTerminate(data->va_dpy);
 
     glx_ctx_push_thread_local(data);
     glDeleteTextures(1, &data->watermark_tex_id);

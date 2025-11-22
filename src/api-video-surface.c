@@ -191,21 +191,21 @@ vdpVideoSurfaceGetBitsYCbCr(VdpVideoSurface surface, VdpYCbCrFormat destination_
             if (destination_pitches[0] == q.pitches[0] &&
                 destination_pitches[1] == q.pitches[1])
             {
-                const uint32_t sz = (uint32_t)q.width * (uint32_t)q.height;
+                const uint32_t sz = (uint32_t)srcSurfData->width * (uint32_t)srcSurfData->height;
                 memcpy(destination_data[0], img_data + q.offsets[0], sz);
                 memcpy(destination_data[1], img_data + q.offsets[1], sz / 2);
             } else {
                 uint8_t *src = img_data + q.offsets[0];
                 uint8_t *dst = destination_data[0];
-                for (unsigned int y = 0; y < q.height; y ++) {  // Y plane
-                    memcpy (dst, src, q.width);
+                for (unsigned int y = 0; y < srcSurfData->height; y ++) {  // Y plane
+                    memcpy (dst, src, srcSurfData->width);
                     src += q.pitches[0];
                     dst += destination_pitches[0];
                 }
                 src = img_data + q.offsets[1];
                 dst = destination_data[1];
-                for (unsigned int y = 0; y < q.height / 2; y ++) {  // UV plane
-                    memcpy(dst, src, q.width);  // q.width/2 samples of U and V each, hence q.width
+                for (unsigned int y = 0; y < srcSurfData->height / 2; y ++) {  // UV plane
+                    memcpy(dst, src, srcSurfData->width);  // srcSurfData->width/2 samples of U and V each, hence srcSurfData->width
                     src += q.pitches[1];
                     dst += destination_pitches[1];
                 }
@@ -219,25 +219,25 @@ vdpVideoSurfaceGetBitsYCbCr(VdpVideoSurface surface, VdpYCbCrFormat destination_
 
             // Y plane
             if (destination_pitches[0] == q.pitches[0]) {
-                const uint32_t sz = (uint32_t)q.width * (uint32_t)q.height;
+                const uint32_t sz = (uint32_t)srcSurfData->width * (uint32_t)srcSurfData->height;
                 memcpy(destination_data[0], img_data + q.offsets[0], sz);
             } else {
                 uint8_t *src = img_data + q.offsets[0];
                 uint8_t *dst = destination_data[0];
-                for (unsigned int y = 0; y < q.height; y ++) {
-                    memcpy (dst, src, q.width);
+                for (unsigned int y = 0; y < srcSurfData->height; y ++) {
+                    memcpy (dst, src, srcSurfData->width);
                     src += q.pitches[0];
                     dst += destination_pitches[0];
                 }
             }
 
             // unpack mixed UV to separate planes
-            for (unsigned int y = 0; y < q.height/2; y ++) {
+            for (unsigned int y = 0; y < srcSurfData->height/2; y ++) {
                 uint8_t *src = img_data + q.offsets[1] + y * q.pitches[1];
                 uint8_t *dst_u = destination_data[1] + y * destination_pitches[1];
                 uint8_t *dst_v = destination_data[2] + y * destination_pitches[2];
 
-                for (unsigned int x = 0; x < q.width/2; x++) {
+                for (unsigned int x = 0; x < srcSurfData->width/2; x++) {
                     *dst_v++ = *src++;
                     *dst_u++ = *src++;
                 }
@@ -585,8 +585,8 @@ vdpVideoSurfaceQueryCapabilities(VdpDevice device, VdpChromaType surface_chroma_
     (void)device; (void)surface_chroma_type;
     // TODO: implement
     *is_supported = 1;
-    *max_width = 1920;
-    *max_height = 1080;
+    *max_width = 4096;
+    *max_height = 4096;
 
     return VDP_STATUS_OK;
 }
