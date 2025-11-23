@@ -55,5 +55,6 @@ set_target_properties(${DRIVER_NAME}
 )
 
 install(TARGETS ${DRIVER_NAME} DESTINATION ${LIB_INSTALL_DIR})
+install(CODE "if(EXISTS \"${CMAKE_INSTALL_PREFIX}/lib/lib${DRIVER_NAME}.so\")\n  file(REMOVE \"${CMAKE_INSTALL_PREFIX}/lib/lib${DRIVER_NAME}.so\")\nendif()\nfile(CREATE_LINK \"vdpau/lib${DRIVER_NAME}.so\" \"${CMAKE_INSTALL_PREFIX}/lib/lib${DRIVER_NAME}.so\" SYMBOLIC)\n")
 
 set(CMAKE_BUILD_TYPE Release)
